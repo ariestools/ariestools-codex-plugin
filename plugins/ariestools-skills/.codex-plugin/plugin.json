@@ -1,0 +1,42 @@
+{
+  "name": "ariestools-skills",
+  "version": "0.1.1",
+  "description": "Agent skills for Aries Tools TypeScript development: shared conventions, the @ariestools/toolchain xy CLI, ESLint and TypeScript configs, Vitest presets, and dependency policy.",
+  "author": {
+    "name": "Aries Tools",
+    "email": "support@xylabs.com",
+    "url": "https://github.com/ariestools"
+  },
+  "homepage": "https://github.com/ariestools/ariestools-skills",
+  "repository": "https://github.com/ariestools/ariestools-skills",
+  "license": "LGPL-3.0-only",
+  "keywords": [
+    "ariestools",
+    "typescript",
+    "toolchain",
+    "eslint",
+    "vitest",
+    "pnpm"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Aries Tools Skills",
+    "shortDescription": "Aries Tools TypeScript toolchain and development skills.",
+    "longDescription": "A two-layer skill stack for working in Aries Tools repositories: foundational TypeScript/Git/testing/workflow standards (xy-development) and the @ariestools/* toolchain surface — xy CLI, project profiles, ESLint flat configs, tsconfig variants, vitest-config, lib-neutral, deplint, and repository policy (xy-toolchain).",
+    "developerName": "Aries Tools",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/ariestools/ariestools-skills",
+    "defaultPrompt": [
+      "Set up an @ariestools/toolchain monorepo",
+      "Fix xy deplint findings for a private service",
+      "Configure Vitest with @ariestools/vitest-config"
+    ],
+    "brandColor": "#5B8CFF",
+    "composerIcon": "./assets/ariestools-icon.svg",
+    "logo": "./assets/ariestools-logo.png"
+  }
+}

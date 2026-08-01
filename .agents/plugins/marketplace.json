@@ -1,0 +1,20 @@
+{
+  "name": "ariestools-skills",
+  "interface": {
+    "displayName": "Aries Tools Skills"
+  },
+  "plugins": [
+    {
+      "name": "ariestools-skills",
+      "source": {
+        "source": "local",
+        "path": "./plugins/ariestools-skills"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}
