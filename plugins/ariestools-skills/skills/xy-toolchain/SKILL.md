@@ -2,7 +2,7 @@
 name: xy-toolchain
 description: Aries Tools TypeScript toolchain used by XY, XYO, and XL1 repositories. Covers the @ariestools/toolchain xy CLI, library and application profiles, monorepo and single-package topology, package-manager behavior, xy.config.ts compile modes, tiered ESLint flat configs, @ariestools TypeScript configs (including lib-neutral ambient globals), @ariestools/vitest-config, Vitest, dependency and API-exposure analysis (deplint roles, pick, placement/presence), publishing checks, dead-code analysis, repository policy, skills, xy work tracking with optional GitHub Issues dual-write/sync and multi-folder workspace scope, and configurable clean (including --full hygiene). Use when setting up or maintaining projects, selecting a project profile, running or debugging build/lint/test commands, configuring package output, fixing dependency placement or required presence, validating publish surfaces, tracking work with xy work, or interpreting xy command failures.
 metadata:
-  version: 0.1.1 # x-release-please-version
+  version: 0.1.2 # x-release-please-version
 ---
 
 # XY Toolchain
@@ -43,6 +43,7 @@ Read when selecting `@ariestools/tsconfig`, `-dom`, or `-react`, configuring Nod
 
 Read when configuring Vitest (including `@ariestools/vitest-config`), choosing spec locations and node/browser routing, running a workspace or path, clearing the test cache, or distinguishing test failures from build failures.
 
-## Product scaffolds
+## Related skills
 
-This pack covers the shared toolchain only. Domain scaffolds (for example XL1 apps in the separate [xyo-skills](https://github.com/XYOracleNetwork/xyo-skills) pack) should still depend on the active `@ariestools/*` packages described here.
+- **[ariestools-sdk](../ariestools-sdk/SKILL.md)** — `@ariestools/sdk` utilities and specialist packages from `sdk-js`.
+- Domain scaffolds (for example XL1 apps in the separate [xyo-skills](https://github.com/XYOracleNetwork/xyo-skills) pack) should still depend on the active `@ariestools/*` toolchain packages described here.
