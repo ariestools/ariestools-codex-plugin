@@ -2,7 +2,7 @@
 name: ariestools-sdk-react
 description: Aries Tools React UI libraries — the @ariestools/sdk-react umbrella and its subpaths, the focused foundation, ui, app, analytics, crypto and feature packages, their peers (React 19, MUI 9, react-router 8, ethers, @ariestools/pixel, @ariestools/eth-address) and undeclared @ariestools/sdk import, the one-copy-per-context import rule, and house patterns (providers, useAsyncEffect, usePromise, error boundaries, user events, stories). Use when installing or importing @ariestools/sdk-react*, choosing the package that owns a component or hook, writing components in a repo on sdk-react, debugging an ignored sdk-react provider, or migrating from @xylabs/sdk-react, @xylabs/react-* or sdk-react-core.
 metadata:
-  version: 0.1.7 # x-release-please-version
+  version: 0.1.8 # x-release-please-version
 ---
 
 # Aries Tools React SDK
@@ -59,4 +59,4 @@ These are navigation links, not dependencies; each skill installs separately.
 - **[ariestools-actor](../ariestools-actor/SKILL.md)** — actor, provider and host kits, including the browser-kit page and worker realms a React app may host. Install: `npx skills add ariestools/ariestools-skills --skill ariestools-actor`.
 - XYO and XL1 React packages live in the separate [xyo-skills](https://github.com/XYOracleNetwork/xyo-skills) pack.
 
-Install this skill with `npx skills add ariestools/ariestools-skills --skill ariestools-sdk-react`, or in an xy repository with `pnpm xy skills add ariestools/ariestools-skills --skill ariestools-sdk-react -y`. It is not in the toolchain's skills catalog; see [skills and work tracking](../xy-toolchain/commands.md#skills-and-work-tracking) for how `xy skills` treats such skills.
+Install this skill with `npx skills add ariestools/ariestools-skills --skill ariestools-sdk-react`, or in an xy repository with `pnpm xy skills pick --skill ariestools-sdk-react`, which also records it as required. Since toolchain 10.1.4 it is in the toolchain's skills catalog: `xy skills lint` requires it, together with ariestools-sdk, wherever a workspace package produces or depends on `@ariestools/sdk-react` or an `@ariestools/sdk-react-*` package, and version-checks it. Through 10.1.3 it is outside the catalog, so `xy skills pick` and the `commands.skillsLint` keys reject it; install it there with `pnpm xy skills add ariestools/ariestools-skills --skill ariestools-sdk-react -y`. See [skills and work tracking](../xy-toolchain/commands.md#skills-and-work-tracking) for the other routes and their caveats.

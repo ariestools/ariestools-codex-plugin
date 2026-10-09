@@ -2,7 +2,7 @@
 name: ariestools-actor
 description: "Aries Tools actor-kit and its host kits: @ariestools/actor, actor-model, actor-engine, provider and provider-model (plus the deprecated actor-system alias), @ariestools/cli-kit (-node, -yargs, -daemon) and @ariestools/browser-kit (-page, -worker, -service-worker, -plugin). Covers Actor, PeriodicActor and ProviderActor lifecycles, provider descriptors, monikers and bindings, compiling, launching and supervising an actor engine, cli-kit process shells and SYS_EXITS exit codes, and browser-kit realms. Use when writing actors or actor-engine providers, hosting them with cli-kit or browser-kit, or migrating from actor-system, @ariestools/actor-cli or the @xyo-network/actor-cli-kit shims."
 metadata:
-  version: 0.1.7 # x-release-please-version
+  version: 0.1.8 # x-release-please-version
 ---
 
 # Aries Tools Actors
@@ -71,4 +71,4 @@ These are navigation links, not dependencies; each skill installs separately.
 - **[ariestools-sdk-react](../ariestools-sdk-react/SKILL.md)** — React UI on `@ariestools/sdk-react*`, for apps whose pages also host browser-kit realms. Install: `npx skills add ariestools/ariestools-skills --skill ariestools-sdk-react`.
 - XL1 browser and CLI specializations live in the separate [xyo-skills](https://github.com/XYOracleNetwork/xyo-skills) pack.
 
-Install this skill with `npx skills add ariestools/ariestools-skills --skill ariestools-actor`, or in an xy repository with `pnpm xy skills add ariestools/ariestools-skills --skill ariestools-actor -y`. It is outside the toolchain's skills catalog (10.1.3): `xy skills defaults` installs it with the rest of ariestools-skills, `xy skills pick` and the `commands.skillsLint` keys reject it, and `xy skills lint` never version-checks it. Lint requires it only when a package.json `xy.skills` entry names it with `source: 'ariestools/ariestools-skills'` (mind the config caveat in [skills and work tracking](../xy-toolchain/commands.md#skills-and-work-tracking)).
+Install this skill with `npx skills add ariestools/ariestools-skills --skill ariestools-actor`, or in an xy repository with `pnpm xy skills pick --skill ariestools-actor`, which also records it as required. Since toolchain 10.1.4 it is in the toolchain's skills catalog: `xy skills lint` requires it, together with ariestools-sdk, wherever a workspace package produces or depends on an actor-kit, cli-kit or browser-kit package, and version-checks it. Through 10.1.3 it is outside the catalog, so `xy skills pick` and the `commands.skillsLint` keys reject it; install it there with `pnpm xy skills add ariestools/ariestools-skills --skill ariestools-actor -y`. See [skills and work tracking](../xy-toolchain/commands.md#skills-and-work-tracking) for the other routes and their caveats.
