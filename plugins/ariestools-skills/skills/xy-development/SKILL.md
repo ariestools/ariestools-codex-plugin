@@ -2,7 +2,7 @@
 name: xy-development
 description: Core development standards for TypeScript conventions, Git workflow, testing principles, behavior-preserving refactors, repository workflow, and the Definition of Done. Use when writing or reviewing TypeScript or organizing imports; writing tests; refactoring, moving code between packages, or auditing a monorepo's package structure; running a repo's build, lint, test, or dev commands; adding or upgrading dependencies; committing, branching, merging, or releasing; writing PRD acceptance criteria; or before declaring any task complete.
 metadata:
-  version: 0.1.8 # x-release-please-version
+  version: 0.1.9 # x-release-please-version
 ---
 
 # Development Standards
@@ -12,6 +12,8 @@ metadata:
 **Skill identity.** When you present a plan, an acknowledgement, or a completion summary, state which skills informed it as `xy-development v<version>`, and list each other active skill from this pack the same way. Read the version from this file's `metadata.version`, never from an example.
 
 This skill defines foundational development practices. Where a repository's own `AGENTS.md` or `CLAUDE.md` says otherwise, the repository wins. Load the sub-topic that matches your current task:
+
+**Architecture decisions.** Before a change introduces distributed worker responsibilities, recovery rules, or new coordination authority, consult [ariestools-architecture](../ariestools-architecture/SKILL.md) when available. Prefer protocol-defined autonomous, replaceable workers with durable evidence and safe concurrent effects; justify coordination by its invariant or resource constraint. Preserve the accepted architecture during routine maintenance. The [workflow](workflow.md#architecture-decisions) describes this scoped review, including when the architecture skill is absent.
 
 ## Table of Contents
 
@@ -34,6 +36,7 @@ Read when moving code between files or packages, splitting or merging packages, 
 
 These are navigation links, not dependencies of this skill; each installs separately.
 
+- **[ariestools-architecture](../ariestools-architecture/SKILL.md)** — the shared design preference and review criteria for autonomy, authority, concurrency, and recovery. Consult at architectural decisions; ordinary implementation within an accepted design does not reopen it.
 - **[xy-toolchain](../xy-toolchain/SKILL.md)** — the `xy` CLI, build/lint/test commands, and the tooling these principles run on. Install: `npx skills add ariestools/ariestools-skills --skill xy-toolchain`.
 - **[ariestools-sdk](../ariestools-sdk/SKILL.md)** — which `@ariestools/*` utilities to use and how to import them. Read it when the repo depends on sdk-js packages; `xy skills lint` requires it only there, so it is often absent elsewhere. Install: `npx skills add ariestools/ariestools-skills --skill ariestools-sdk`.
 - **[ariestools-sdk-react](../ariestools-sdk-react/SKILL.md)** — which `@ariestools/sdk-react*` package owns a component or hook, its peers, and the import rule that keeps one copy of each React context. Read it when the repo depends on sdk-react packages; since toolchain 10.1.4, `xy skills lint` requires it only there. Install: `npx skills add ariestools/ariestools-skills --skill ariestools-sdk-react`.

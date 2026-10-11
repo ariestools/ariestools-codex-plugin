@@ -2,7 +2,7 @@
 name: ariestools-actor
 description: "Aries Tools actor-kit and its host kits: @ariestools/actor, actor-model, actor-engine, provider and provider-model (plus the deprecated actor-system alias), @ariestools/cli-kit (-node, -yargs, -daemon) and @ariestools/browser-kit (-page, -worker, -service-worker, -plugin). Covers Actor, PeriodicActor and ProviderActor lifecycles, provider descriptors, monikers and bindings, compiling, launching and supervising an actor engine, cli-kit process shells and SYS_EXITS exit codes, and browser-kit realms. Use when writing actors or actor-engine providers, hosting them with cli-kit or browser-kit, or migrating from actor-system, @ariestools/actor-cli or the @xyo-network/actor-cli-kit shims."
 metadata:
-  version: 0.1.8 # x-release-please-version
+  version: 0.1.9 # x-release-please-version
 ---
 
 # Aries Tools Actors
@@ -18,6 +18,8 @@ metadata:
 `@ariestools/cli`, the `aries` operator CLI, is a product built with cli-kit, not a kit, and is out of scope: see [what this skill does not cover](overview.md#what-this-skill-does-not-cover) and `aries --help`.
 
 **Model.** One host-agnostic engine, `@ariestools/actor-engine`, compiles config, resolves one provider graph, constructs actors and supervises them. Domain code depends on `@ariestools/actor` and `@ariestools/actor-engine`, never on a host kit. cli-kit adds the Node process boundary and makes supervision sequential; browser-kit adds realm boundaries and keeps the engine's parallel default. Both 2.x host kits still need the deprecated `@ariestools/actor-system` alias beside them ([host kits still on actor-system](migration.md#host-kits-still-on-actor-system)).
+
+**Distributed responsibilities.** Before assigning application work across processes or hosts, introducing a controller, or choosing recovery and effect rules, consult [ariestools-architecture](../ariestools-architecture/SKILL.md) when available. Local lifecycle supervision remains useful: assess separately who owns business obligations, outcome acceptance, and recoverable progress. Prefer independently discovering, replaceable workers with safe concurrent effects; justify coordinated authority by its invariant or resource constraint. This policy does not alter the kit APIs or reopen an accepted application protocol during routine lifecycle work.
 
 **Traps.**
 
@@ -65,6 +67,7 @@ Read when moving actor-kit 1.3 to 2.0 (enforced dependency access, closing scope
 
 These are navigation links, not dependencies; each skill installs separately.
 
+- **[ariestools-architecture](../ariestools-architecture/SKILL.md)** — design and review application authority, independent discovery, worker replacement, effect concurrency, and scoped coordination across actors or hosts.
 - **[xy-development](../xy-development/SKILL.md)** — TypeScript, Git, testing principles and the Definition of Done; this skill builds on it. Install: `npx skills add ariestools/ariestools-skills --skill xy-development`.
 - **[xy-toolchain](../xy-toolchain/SKILL.md)** — the `xy` CLI, Vitest (including Chromium for browser specs), deplint package roles for bin and library packages, and the `tslib` that decorators such as `@creatable()` need; this skill builds on it. Install: `npx skills add ariestools/ariestools-skills --skill xy-toolchain`.
 - **[ariestools-sdk](../ariestools-sdk/SKILL.md)** — the `@ariestools/sdk` utilities actors use (`creatable`, `CreatableName`, loggers), its `zod` and OpenTelemetry peers, and the root-barrel import rule; this skill builds on it. Install: `npx skills add ariestools/ariestools-skills --skill ariestools-sdk`.
